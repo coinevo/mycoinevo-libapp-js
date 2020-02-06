@@ -2,3 +2,6 @@
 	path = src/submodules/mycoinevo-libapp-cpp
 	url = https://github.com/coinevo/mycoinevo-libapp-cpp
 
+[submodule "mycoinevo-core-js"]
+	path = mycoinevo-core-js
+	url = https://github.com/coinevo/mycoinevo-core-js
