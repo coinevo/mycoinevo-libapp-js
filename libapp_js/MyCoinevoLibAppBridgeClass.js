@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2019, MyMonero.com
+// Copyright (c) 2014-2019, MyCoinevo.tech
 //
 // All rights reserved.
 //
@@ -26,11 +26,11 @@
 // STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
-const MyMoneroCoreBridgeEssentialsClass = require('../mymonero-core-js/monero_utils/MyMoneroCoreBridgeEssentialsClass')
-const MyMoneroBridge_utils = require('../mymonero-core-js/monero_utils/MyMoneroBridge_utils')
-const nettype_utils = require("../mymonero-core-js/cryptonote_utils/nettype");
+const MyCoinevoCoreBridgeEssentialsClass = require('../mycoinevo-core-js/coinevo_utils/MyCoinevoCoreBridgeEssentialsClass')
+const MyCoinevoBridge_utils = require('../mycoinevo-core-js/coinevo_utils/MyCoinevoBridge_utils')
+const nettype_utils = require("../mycoinevo-core-js/cryptonote_utils/nettype");
 //
-class MyMoneroLibAppBridgeClass extends MyMoneroCoreBridgeEssentialsClass
+class MyCoinevoLibAppBridgeClass extends MyCoinevoCoreBridgeEssentialsClass
 {
 	constructor(this_Module)
 	{
@@ -113,7 +113,7 @@ class MyMoneroLibAppBridgeClass extends MyMoneroCoreBridgeEssentialsClass
 		self._cb_handlers__SendFundsFormSubmission["fromCpp__SendFundsFormSubmission__get_unspent_outs"] = function(req_params)
 		{
 			// convert bridge-strings to native primitive types
-			req_params.use_dust = MyMoneroBridge_utils.ret_val_boolstring_to_bool(req_params.use_dust)
+			req_params.use_dust = MyCoinevoBridge_utils.ret_val_boolstring_to_bool(req_params.use_dust)
 			req_params.mixin = parseInt(req_params.mixin)
 			//
 			fn_args.get_unspent_outs_fn(req_params, function(err_msg, res)
@@ -198,7 +198,7 @@ class MyMoneroLibAppBridgeClass extends MyMoneroCoreBridgeEssentialsClass
 		self._cb_handlers__SendFundsFormSubmission["fromCpp__SendFundsFormSubmission__success"] = function(params)
 		{
 			params.mixin = parseInt(params.mixin)
-			params.isXMRAddressIntegrated = MyMoneroBridge_utils.ret_val_boolstring_to_bool(params.isXMRAddressIntegrated)
+			params.isEVOAddressIntegrated = MyCoinevoBridge_utils.ret_val_boolstring_to_bool(params.isEVOAddressIntegrated)
 			//
 			fn_args.success_fn(params);
 			self._cb_handlers__SendFundsFormSubmission = null // reset so we can enter process again
@@ -263,4 +263,4 @@ class MyMoneroLibAppBridgeClass extends MyMoneroCoreBridgeEssentialsClass
 
 	}
 }
-module.exports = MyMoneroLibAppBridgeClass;
+module.exports = MyCoinevoLibAppBridgeClass;

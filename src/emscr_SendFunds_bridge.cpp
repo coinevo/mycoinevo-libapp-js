@@ -1,6 +1,6 @@
 //
 //  emscr_async_bridge_index.cpp
-//  Copyright (c) 2014-2019, MyMonero.com
+//  Copyright (c) 2014-2019, MyCoinevo.tech
 //
 //  All rights reserved.
 //
@@ -51,8 +51,8 @@ using namespace boost;
 using namespace SendFunds;
 //
 using namespace serial_bridge_utils;
-using namespace monero_send_routine;
-using namespace monero_transfer_utils;
+using namespace coinevo_send_routine;
+using namespace coinevo_transfer_utils;
 using namespace emscr_SendFunds_bridge;
 //
 // Runtime - Memory
@@ -132,7 +132,7 @@ void send_app_handler__success(const Success_RetVals &success_retVals)
 	root.put(ret_json_key__send__tx_pub_key(), std::move(success_retVals.tx_pub_key_string));
 	root.put("target_address", std::move(success_retVals.target_address));
 	root.put("final_total_wo_fee", std::move(RetVals_Transforms::str_from(success_retVals.final_total_wo_fee)));
-	root.put("isXMRAddressIntegrated", std::move(RetVals_Transforms::str_from(success_retVals.isXMRAddressIntegrated)));
+	root.put("isEVOAddressIntegrated", std::move(RetVals_Transforms::str_from(success_retVals.isEVOAddressIntegrated)));
 	if (success_retVals.integratedAddressPIDForDisplay) {
 		root.put("integratedAddressPIDForDisplay", std::move(*(success_retVals.integratedAddressPIDForDisplay)));
 	}

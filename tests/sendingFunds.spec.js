@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2019, MyMonero.com
+// Copyright (c) 2014-2019, MyCoinevo.tech
 //
 // All rights reserved.
 //
@@ -28,7 +28,7 @@
 
 "use strict";
 
-const nettype_utils = require("../mymonero-core-js/cryptonote_utils/nettype")
+const nettype_utils = require("../mycoinevo-core-js/cryptonote_utils/nettype")
 const assert = require("assert");
 
 class APIClient
@@ -188,7 +188,7 @@ describe("sendingFunds tests", function()
 		const payment_id = null; 
 		var bridge_instance;
 		try {
-			bridge_instance = await require('../libapp_js/MyMoneroLibAppBridge')({ asmjs: undefined/*allow it to detect*/ });
+			bridge_instance = await require('../libapp_js/MyCoinevoLibAppBridge')({ asmjs: undefined/*allow it to detect*/ });
 		} catch (e) {
 			console.error(e);
 			return;
